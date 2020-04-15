@@ -4,22 +4,20 @@ import "./History.css";
 class History extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      items: [
-        { description: "walk dog", checked: false },
-        { description: "bake bread", checked: false },
-        { description: "clean kitchen", checked: true },
-      ],
-      showModal: false,
-      selectedItem: null,
-    };
   }
 
   render() {
     return (
       <div className="history-container">
         <h3>History</h3>
+        {this.props.history.map((item) => (
+          <div key={item.timestamp} className="history-item">
+            <h6>{item.timestamp}</h6>
+            <h5>
+              {item.value} {item.fromId} was {item.conversion} {item.toId}
+            </h5>
+          </div>
+        ))}
       </div>
     );
   }

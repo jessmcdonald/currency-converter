@@ -12,7 +12,7 @@ const eurovals = [
 class Converter extends React.Component {
   state = {
     value: "",
-    currencyIdFrom: null,
+    currencyIdFrom: "EUR",
     currencyIdTo: null,
     conversion: null,
     timestamp: null,
@@ -37,13 +37,22 @@ class Converter extends React.Component {
 
   currencyConvert = (event) => {
     event.preventDefault();
-    let val = this.state.value;
-    let currencyId = this.state.currencyIdTo;
+    let val = parseFloat(this.state.value).toFixed(2);
+    let currencyIdTo = this.state.currencyIdTo;
+    let currencyIdFrom = this.state.currencyIdFrom;
+    let datenow = new Date();
     for (let i = 0; i < eurovals.length; i++) {
-      if (eurovals[i].currency === currencyId) {
+      if (eurovals[i].currency === currencyIdTo) {
         let answer = eurovals[i].convertval * val;
         this.setState({ conversion: answer.toFixed(2) });
-        this.setState({ timestamp: Date() });
+        this.setState({ timestamp: datenow.toUTCString() });
+        this.props.addItemToHistory({
+          timestamp: datenow.toUTCString(),
+          fromId: currencyIdFrom,
+          toId: currencyIdTo,
+          value: val,
+          conversion: answer.toFixed(2),
+        });
       }
     }
   };

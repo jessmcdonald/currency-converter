@@ -1,8 +1,8 @@
 .history-container {
   text-align: left;
   width: 25vw;
-  height: 14vw;
-  display: grid;
+  height: 20vw;
+  overflow: scroll;
   padding: 1.5vw;
   margin: 2vw;
   border-width: 1px;
@@ -12,4 +12,9 @@
   column-gap: 1%;
   grid-template-rows: 22% 22% 22% 29%;
   row-gap: 1%;
+}
+
+.history-item {
+  margin-top: 1vw;
+  margin-left: 1vw;
 }

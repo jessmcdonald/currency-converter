@@ -14,7 +14,7 @@ class App extends React.Component {
 
   addItemToHistory = (newitem) => {
     let updatedHistory = this.state.history;
-    updatedHistory.push(newitem);
+    updatedHistory.unshift(newitem);
     this.setState({ history: updatedHistory });
     console.log(this.state.history);
   };

@@ -46,6 +46,7 @@ class Converter extends React.Component {
         let answer = eurovals[i].convertval * val;
         this.setState({ conversion: answer.toFixed(2) });
         this.setState({ timestamp: datenow.toUTCString() });
+
         this.props.addItemToHistory({
           timestamp: datenow.toUTCString(),
           fromId: currencyIdFrom,
@@ -99,7 +100,7 @@ class Converter extends React.Component {
           >
             <option value="EUR">EUR</option>
             <option value="USD">USD</option>
-            <option value="JPY">JPY</option>
+            <option value="YEN">YEN</option>
             <option value="CHF">CHF</option>
           </select>
           <select
@@ -109,7 +110,7 @@ class Converter extends React.Component {
           >
             <option value="EUR">EUR</option>
             <option value="USD">USD</option>
-            <option value="JPY">JPY</option>
+            <option value="YEN">YEN</option>
             <option value="CHF">CHF</option>
           </select>
           <input

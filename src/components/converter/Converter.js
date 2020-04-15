@@ -5,7 +5,7 @@ import "./Converter.css";
 const eurovals = [
   { currency: "USD", convertval: 1.09322 },
   { currency: "GBP", convertval: 0.87345 },
-  { currency: "JPY", convertval: 117.431 },
+  { currency: "YEN", convertval: 117.431 },
   { currency: "CHF", convertval: 1.05378 },
 ];
 
@@ -66,8 +66,9 @@ class Converter extends React.Component {
     let currencyIdTo = this.state.currencyIdTo;
     let currencyIdFrom = this.state.currencyIdFrom;
     let datenow = new Date();
+
     //call function to get multiplier from api
-    this.newCurrencyConvert(currencyIdFrom, currencyIdTo);
+    //this.newCurrencyConvert(currencyIdFrom, currencyIdTo);
 
     for (let i = 0; i < eurovals.length; i++) {
       if (eurovals[i].currency === currencyIdTo) {

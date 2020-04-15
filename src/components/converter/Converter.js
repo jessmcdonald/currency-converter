@@ -56,7 +56,9 @@ class Converter extends React.Component {
             {this.state.value} {this.state.currencyIdFrom} equals
           </div>
         ) : (
-          <div className="item-1">Enter a value to begin</div>
+          <div className="item-1">
+            <h3>Enter a value to begin</h3>
+          </div>
         )}
         {this.state.conversion ? (
           <div className="return-value item-2">

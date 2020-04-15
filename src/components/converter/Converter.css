@@ -1,0 +1,81 @@
+.convertor-container {
+  text-align: left;
+  width: 25vw;
+  height: 14vw;
+  display: grid;
+  padding: 1.5vw;
+  margin: 10vw;
+  border-width: 1px;
+  box-shadow: 1px 1px 3px grey;
+  border-radius: 4px;
+  grid-template-columns: 100%;
+  column-gap: 1%;
+  grid-template-rows: 22% 22% 22% 29%;
+  row-gap: 1%;
+}
+
+.item-1 {
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.item-2 {
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+.item-3 {
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+
+.item-4 {
+  grid-row-start: 4;
+  grid-row-end: 5;
+}
+
+.form-item {
+  margin: 0.4vw;
+}
+
+/* .item-5 {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 4;
+  grid-row-end: 5;
+}
+
+.item-6 {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 4;
+  grid-row-end: 5;
+}
+.item-7 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 4;
+  grid-row-end: 5;
+} */
+
+.user-input-amount {
+  font-size: 2vh;
+  color: #484848;
+  padding: 0.1vw;
+}
+
+.return-value {
+  font-weight: 600;
+  font-size: 2.5vh;
+  padding: 0.1vw;
+}
+
+.date-of-conversion {
+  font-size: 1.5vh;
+  color: #707070;
+  padding: 0.1vw;
+}
+
+.conversion-form {
+  font-size: 2vh;
+}

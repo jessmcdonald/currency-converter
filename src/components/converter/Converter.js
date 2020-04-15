@@ -1,5 +1,5 @@
 import React from "react";
-
+import axios from "axios";
 import "./Converter.css";
 
 const eurovals = [
@@ -35,18 +35,47 @@ class Converter extends React.Component {
     this.setState({ currencyIdFrom: event.target.value });
   };
 
+  newCurrencyConvert = (fromId, toId) => {
+    axios
+      .post(
+        "https://igfcc7aebk.execute-api.sa-east-1.amazonaws.com/default/money-conversion-interview-exercise-api",
+        {
+          headers: {
+            accept: "application/json",
+          },
+          body: {
+            from: fromId,
+            to: toId,
+          },
+        }
+      )
+      .then((response) => {
+        this.setState({ multiplier: response.data.multiplier });
+        console.log(this.state.multiplier);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
   currencyConvert = (event) => {
+    //prevent automatic refresh with submit
     event.preventDefault();
+
     let val = parseFloat(this.state.value).toFixed(2);
     let currencyIdTo = this.state.currencyIdTo;
     let currencyIdFrom = this.state.currencyIdFrom;
     let datenow = new Date();
+    //call function to get multiplier from api
+    this.newCurrencyConvert(currencyIdFrom, currencyIdTo);
+
     for (let i = 0; i < eurovals.length; i++) {
       if (eurovals[i].currency === currencyIdTo) {
         let answer = eurovals[i].convertval * val;
         this.setState({ conversion: answer.toFixed(2) });
         this.setState({ timestamp: datenow.toUTCString() });
 
+        //call function to add conversion to history array
         this.props.addItemToHistory({
           timestamp: datenow.toUTCString(),
           fromId: currencyIdFrom,
@@ -91,7 +120,7 @@ class Converter extends React.Component {
             type="number"
             value={this.state.value}
             onChange={this.handleChange}
-            className="form-item"
+            className="form-item text-input"
           />
           <select
             id="currency-from"

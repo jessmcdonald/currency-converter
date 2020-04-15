@@ -59,3 +59,8 @@
 .conversion-form {
   font-size: 2vh;
 }
+
+.text-input {
+  height: 2vh;
+  padding: 0.4vh;
+}
